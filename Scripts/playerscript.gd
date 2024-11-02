@@ -99,7 +99,7 @@ func manageJump(delta):
 func updateAnimation():
 	var dir
 	var direction
-	dir = Input.get_axis("ui_left", "ui_right")
+	dir = Input.get_axis("move_left", "move_right")
 	direction = 'still'
 	if dir == 0 :
 		animations.play('still')
