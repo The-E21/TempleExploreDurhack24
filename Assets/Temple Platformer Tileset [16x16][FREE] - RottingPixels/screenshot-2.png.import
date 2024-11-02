@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1fubid8x46g8"
-path="res://.godot/imported/Test_1.png-6d072fb9771515b797fc92a93bee5cc9.ctex"
+uid="uid://djhvi4sb774bx"
+path="res://.godot/imported/screenshot-2.png-36a63c4b0cfbd9ffd65515ac558fd98d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Social/Test_1.png"
-dest_files=["res://.godot/imported/Test_1.png-6d072fb9771515b797fc92a93bee5cc9.ctex"]
+source_file="res://Assets/Temple Platformer Tileset [16x16][FREE] - RottingPixels/screenshot-2.png"
+dest_files=["res://.godot/imported/screenshot-2.png-36a63c4b0cfbd9ffd65515ac558fd98d.ctex"]
 
 [params]
 
