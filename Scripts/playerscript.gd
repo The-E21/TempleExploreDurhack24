@@ -56,15 +56,19 @@ func manageJump(delta):
 			elif jumpTimer >= jumpTime:
 				jumpPhase = 2
 				jumpTimer = 0
-				velocity = Vector2(velocity.x, 2 * (1 - apexPercentile) * jumpHight / (apexTime/2))
+				velocity = Vector2(velocity.x, -2 * (1 - apexPercentile) * jumpHight / (apexTime/2))
 		2:
-			velocity -= Vector2.DOWN * 2*(1 - apexPercentile) * jumpHight / pow(apexTime / 2, 2)
+			velocity += Vector2(0,delta * 2 * (1 - apexPercentile) * jumpHight / pow(apexTime/2, 2))
 			jumpTimer += delta
-			jumpPhase = 3
+			if jumpTimer >= apexTime:
+				jumpPhase = 3
 		3:
 			velocity += Vector2.DOWN * gravity * delta
+			jumpTimer += delta
 			if(is_on_floor()):
 				jumpPhase = 0
+			if(jumpDown):
+				jumpTimer = 0
 		4:
 			jumpTimer += delta
 			if(jumpTimer >= coyoteTime):

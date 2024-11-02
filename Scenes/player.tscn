@@ -13,10 +13,10 @@ speed = 300.0
 accelerationMultiplier = 9.0
 gravity = 1100.0
 jumpHight = 300.0
-apexPercentile = 0.8
+apexPercentile = 0.9
 jumpCut = 0.2
 jumpTime = 0.4
-apexTime = 0.9
+apexTime = 0.5
 coyoteTime = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
