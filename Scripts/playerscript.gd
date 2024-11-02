@@ -35,7 +35,7 @@ func _input(event):
 		jumpDown = false
 
 func  _process(delta):
-	leftRightInput = Input.get_axis("ui_left", "ui_right")
+	leftRightInput = Input.get_axis("move_left", "move_right")
 	
 func _physics_process(delta):
 	manageJump(delta)	
