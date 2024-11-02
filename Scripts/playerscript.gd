@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+#Constants
+const PUSH_FORCE = 100
+const MAX_VELOCITY = 150
+
 #Horizontal movement
 var leftRightInput : float
 var leftRightAimVelocity : float
@@ -44,6 +48,13 @@ func _physics_process(delta):
 	velocity += Vector2((leftRightAimVelocity - velocity.x) * accelerationMultiplier * delta, 0)
 	move_and_slide()
 	updateAnimation()
+	push_crate(delta)
+	
+func push_crate(delta):
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collision_crate = collision.get_collider()
+		if collision_crate.is_in_group("Crates") and abs(collision_crate.get_linear_velocity().x) < MAX_VELOCITY: collision_crate.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 
 func manageJump(delta):
 	if(jumpBufferTimer != -1):
