@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmvm3tmon2yir"]
+
+[ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://Assets/icon.svg" id="1_2eu8h"]
+[ext_resource type="Script" path="res://Scripts/playerscript.gd" id="1_dv0df"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ix1y5"]
+radius = 60.0
+height = 120.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_dv0df")
+speed = 300.0
+accelerationMultiplier = 9.0
+gravity = 1100.0
+jumpHight = 300.0
+apexPercentile = 0.9
+jumpCut = 0.2
+jumpTime = 0.4
+apexTime = 0.5
+coyoteTime = 0.2
+jumpBufferTime = 0.2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2eu8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ix1y5")
