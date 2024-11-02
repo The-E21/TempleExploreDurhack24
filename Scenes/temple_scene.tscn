@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dycx8f1qsbpmp" path="res://Scenes/Crate.tscn" id="7_830v7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pcj6"]
-size = Vector2(1091, 77)
+size = Vector2(1082.34, 69.1071)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ixa"]
 texture = ExtResource("3_2go6b")
@@ -201,7 +201,7 @@ texture = ExtResource("1_4rxxl")
 position = Vector2(417, -205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(572.5, 602)
+position = Vector2(596, 600.25)
 scale = Vector2(0.3012, 1.23721)
 shape = SubResource("RectangleShape2D_5pcj6")
 
@@ -209,12 +209,14 @@ shape = SubResource("RectangleShape2D_5pcj6")
 position = Vector2(-3.49999, 2.49999)
 scale = Vector2(8.39063, 0.539062)
 texture = ExtResource("1_4rxxl")
+metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_ld67o")]
 position = Vector2(367, 466)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -60)
+zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
