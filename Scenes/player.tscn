@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c55m5me61g5hd" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Character/Character_Sprite_Sheet.png" id="2_am2xj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ix1y5"]
-radius = 60.0
-height = 120.0
+height = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wlirr"]
 atlas = ExtResource("2_am2xj")
@@ -148,11 +147,12 @@ jumpBufferTime = 0.2
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 18)
 shape = SubResource("CapsuleShape2D_ix1y5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(27, 1)
-scale = Vector2(2.51541, 2.55)
+position = Vector2(7, 15)
+scale = Vector2(0.526113, 0.6125)
 sprite_frames = SubResource("SpriteFrames_8kmgw")
 animation = &"run"
 frame = 6
