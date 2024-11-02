@@ -130,6 +130,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_dv0df")
 speed = 300.0
 accelerationMultiplier = 9.0

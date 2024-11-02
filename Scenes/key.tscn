@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cefj51svkauch"]
+
+[ext_resource type="Texture2D" uid="uid://ce6p088dcw22t" path="res://Assets/Temple Platformer Tileset [16x16][FREE] - RottingPixels/temple-tileset.png" id="1_mrxg8"]
+[ext_resource type="Script" path="res://Scripts/key.gd" id="2_qlf73"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nclst"]
+atlas = ExtResource("1_mrxg8")
+region = Rect2(112, 64, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1pd63"]
+radius = 6.71863
+
+[node name="Key" type="Area2D"]
+scale = Vector2(10, 10)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_qlf73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nclst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1pd63")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

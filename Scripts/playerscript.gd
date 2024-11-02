@@ -24,6 +24,9 @@ var jumpBufferTimer : float = -1
 #animation
 @onready var animations = $AnimatedSprite2D
 
+#Collect Keys
+var inventory = []
+
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jumpDown = true
@@ -115,3 +118,7 @@ func updateAnimation():
 			direction = 'Up' 
 			animations.play('runUp')
 		
+
+
+func _on_key_pick_key(id):
+	inventory.append(id)
