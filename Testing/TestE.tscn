@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://fjiknldj7ami"]
+[gd_scene load_steps=6 format=3 uid="uid://fjiknldj7ami"]
 
 [ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://Assets/icon.svg" id="1_rxn5a"]
 [ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_rxdl1"]
 [ext_resource type="PackedScene" uid="uid://dycx8f1qsbpmp" path="res://Scenes/Crate.tscn" id="3_8jagc"]
+[ext_resource type="PackedScene" uid="uid://cm3rax2fiu817" path="res://Scenes/pressure_plate.tscn" id="4_7efh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm30x"]
 size = Vector2(1082.34, 69.1071)
@@ -26,3 +27,9 @@ position = Vector2(58.0818, 158.756)
 
 [node name="Crate" parent="." instance=ExtResource("3_8jagc")]
 position = Vector2(99, 146)
+
+[node name="Pressure Plate" parent="." instance=ExtResource("4_7efh7")]
+position = Vector2(-40, 174)
+
+[connection signal="press" from="Pressure Plate" to="Player" method="_on_pressure_plate_press"]
+[connection signal="unpress" from="Pressure Plate" to="Player" method="_on_pressure_plate_unpress"]

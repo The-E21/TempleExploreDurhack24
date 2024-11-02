@@ -135,6 +135,7 @@ func _on_key_pick_key(id):
 	inventory.append(id)
 
 
+#The following three functions are for testing only
 func _on_pressure_plate_press(id):
 	print("Activated pressure plate " + str(id))
 
