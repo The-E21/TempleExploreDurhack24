@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm3rax2fiu817"]
+
+[ext_resource type="Script" path="res://Scripts/pressure_plate.gd" id="1_jfwbu"]
+[ext_resource type="Texture2D" uid="uid://cjubs0d2im85g" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Assets.png" id="1_vlccl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs7rf"]
+atlas = ExtResource("1_vlccl")
+region = Rect2(144, 144, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xnyo"]
+size = Vector2(14, 17)
+
+[node name="Pressure Plate" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_jfwbu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_qs7rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_5xnyo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

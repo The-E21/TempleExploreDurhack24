@@ -12,8 +12,6 @@ func _input(event):
 
 func _on_body_entered(body):
 	inArea = true
-	print(body)
 
 func _on_body_exited(body):
 	inArea = false
-	print(body)
