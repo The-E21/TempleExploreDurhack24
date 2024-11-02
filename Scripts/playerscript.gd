@@ -129,3 +129,6 @@ func _on_pressure_plate_press(id):
 
 func _on_pressure_plate_unpress(id):
 	print("Deactivated pressure plate " + str(id))
+
+func _on_button_press(id):
+	print("Pressed button " + str(id))
