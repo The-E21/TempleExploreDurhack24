@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn26yywg2oykc"
-path="res://.godot/imported/Character_Sprite_Sheet.png-37a441bcd0658411b05f3073c3b98a6b.ctex"
+uid="uid://dx5ky3e84t7kc"
+path="res://.godot/imported/Test_1.png-6d072fb9771515b797fc92a93bee5cc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Legacy_Adventure_Pack_TEMPLE/Final/Character/Character_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/Character_Sprite_Sheet.png-37a441bcd0658411b05f3073c3b98a6b.ctex"]
+source_file="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Social/Test_1.png"
+dest_files=["res://.godot/imported/Test_1.png-6d072fb9771515b797fc92a93bee5cc9.ctex"]
 
 [params]
 
