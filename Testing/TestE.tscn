@@ -9,6 +9,7 @@ size = Vector2(1082.34, 69.1071)
 [node name="TestE" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-461, -388)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(572.5, 602)
