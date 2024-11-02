@@ -211,8 +211,7 @@ texture = ExtResource("1_4rxxl")
 position = Vector2(367, 466)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2(0, -30)
-zoom = Vector2(3, 3)
+offset = Vector2(0, -60)
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
