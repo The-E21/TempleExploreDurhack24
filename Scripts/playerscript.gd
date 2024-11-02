@@ -14,5 +14,4 @@ func _physics_process(delta):
 	velocity += Vector2.DOWN * gravity * delta
 	leftRightAimVelocity = leftRightInput * speed
 	velocity += Vector2((leftRightAimVelocity - velocity.x) * accelerationMultiplier * delta, 0)
-	print(velocity.x)
 	move_and_slide()
