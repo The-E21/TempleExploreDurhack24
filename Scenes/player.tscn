@@ -10,8 +10,13 @@ height = 120.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dv0df")
 speed = 300.0
-gravity = 600.0
 accelerationMultiplier = 9.0
+gravity = 1100.0
+jumpHight = 300.0
+apexPercentile = 0.9
+jumpCut = 0.2
+jumpTime = 0.4
+apexTime = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2eu8h")
