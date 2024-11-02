@@ -122,3 +122,10 @@ func updateAnimation():
 
 func _on_key_pick_key(id):
 	inventory.append(id)
+
+
+func _on_pressure_plate_press(id):
+	print("Activated pressure plate " + str(id))
+
+func _on_pressure_plate_unpress(id):
+	print("Deactivated pressure plate " + str(id))
