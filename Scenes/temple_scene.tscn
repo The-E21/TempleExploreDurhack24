@@ -230,3 +230,11 @@ tile_set = SubResource("TileSet_qpynn")
 position = Vector2(616, 476)
 scale = Vector2(10, 10)
 texture = SubResource("AtlasTexture_6ob7r")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 425.0
+offset_top = 477.0
+offset_right = 544.0
+offset_bottom = 500.0
+text = "Hello little man"
+horizontal_alignment = 1
