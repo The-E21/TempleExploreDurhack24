@@ -122,3 +122,9 @@ func updateAnimation():
 
 func _on_key_pick_key(id):
 	inventory.append(id)
+	
+func OnDoorOpen(id):
+	for i in inventory:
+		if i == id:
+			
+	

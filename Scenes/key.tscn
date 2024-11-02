@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cefj51svkauch"]
+[gd_scene load_steps=5 format=3 uid="uid://cdg5ibm0welvx"]
 
 [ext_resource type="Texture2D" uid="uid://ce6p088dcw22t" path="res://Assets/Temple Platformer Tileset [16x16][FREE] - RottingPixels/temple-tileset.png" id="1_mrxg8"]
 [ext_resource type="Script" path="res://Scripts/key.gd" id="2_qlf73"]
