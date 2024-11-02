@@ -111,7 +111,7 @@ func updateAnimation():
 			animations.flip_h = true
 			animations.play('run')
 		elif dir > 0:
-			direction = ''
+			direction = ''	
 			animations.flip_h = false
 			animations.play('run')
 		elif velocity.y > 0: 
