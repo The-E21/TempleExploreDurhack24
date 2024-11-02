@@ -17,6 +17,7 @@ var jumpPhase : int
 @export var jumpTime : float
 @export var apexTime : float
 var jumpTimer : float
+@export var coyoteTime : float
 
 func _input(event):
 	if event.is_action_pressed("jump"):
@@ -38,9 +39,9 @@ func manageJump(delta):
 	match jumpPhase:
 		0:
 			if(not is_on_floor()):
-				jumpPhase = 3
+				jumpPhase = 4
+				jumpTimer = 0
 			if(jumpDown):
-				print("go")
 				jumpPhase = 1
 				jumpTimer = 0
 		1:
@@ -64,4 +65,14 @@ func manageJump(delta):
 			velocity += Vector2.DOWN * gravity * delta
 			if(is_on_floor()):
 				jumpPhase = 0
+		4:
+			jumpTimer += delta
+			if(jumpTimer >= coyoteTime):
+				jumpPhase = 3
+			velocity += Vector2.DOWN * gravity * delta
+			if(is_on_floor()):
+				jumpPhase = 0
+			if(jumpDown):
+				jumpPhase = 1
+				jumpTimer = 0
 	

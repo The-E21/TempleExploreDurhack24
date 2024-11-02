@@ -19,5 +19,18 @@ position = Vector2(-3.49999, 2.49999)
 scale = Vector2(8.39063, 0.539062)
 texture = ExtResource("1_4rxxl")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(417, -205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(572.5, 602)
+scale = Vector2(0.3012, 1.23721)
+shape = SubResource("RectangleShape2D_5pcj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D"]
+position = Vector2(-3.49999, 2.49999)
+scale = Vector2(8.39063, 0.539062)
+texture = ExtResource("1_4rxxl")
+
 [node name="Player" parent="." instance=ExtResource("2_ld67o")]
 position = Vector2(367, 466)
