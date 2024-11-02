@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://Assets/icon.svg" id="1_rxn5a"]
 [ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_rxdl1"]
-[ext_resource type="PackedScene" uid="uid://dycx8f1qsbpmp" path="res://Scenes/Crate.tscn" id="3_8jagc"]
-[ext_resource type="PackedScene" uid="uid://cm3rax2fiu817" path="res://Scenes/pressure_plate.tscn" id="4_7efh7"]
+[ext_resource type="PackedScene" uid="uid://lnhghc06khuw" path="res://Scenes/lights.tscn" id="3_wyxyc"]
+[ext_resource type="PackedScene" uid="uid://biybvg1vevoxv" path="res://Scenes/button.tscn" id="4_8bnic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm30x"]
 size = Vector2(1082.34, 69.1071)
@@ -25,11 +25,24 @@ texture = ExtResource("1_rxn5a")
 [node name="Player" parent="." instance=ExtResource("2_rxdl1")]
 position = Vector2(58.0818, 158.756)
 
-[node name="Crate" parent="." instance=ExtResource("3_8jagc")]
-position = Vector2(99, 146)
+[node name="Lights" parent="." instance=ExtResource("3_wyxyc")]
+position = Vector2(8, 137)
+ids = [0, 1, 2]
+idToggles = [3, 12, 6]
+outID = 3
 
-[node name="Pressure Plate" parent="." instance=ExtResource("4_7efh7")]
-position = Vector2(-40, 174)
+[node name="Button" parent="." instance=ExtResource("4_8bnic")]
+position = Vector2(-23, 164)
 
-[connection signal="press" from="Pressure Plate" to="Player" method="_on_pressure_plate_press"]
-[connection signal="unpress" from="Pressure Plate" to="Player" method="_on_pressure_plate_unpress"]
+[node name="Button2" parent="." instance=ExtResource("4_8bnic")]
+position = Vector2(21, 167)
+id = 1
+
+[node name="Button3" parent="." instance=ExtResource("4_8bnic")]
+position = Vector2(73, 164)
+id = 2
+
+[connection signal="solved" from="Lights" to="Player" method="_on_lights_solved"]
+[connection signal="press" from="Button" to="Lights" method="_on_receive_id_signal"]
+[connection signal="press" from="Button2" to="Lights" method="_on_receive_id_signal"]
+[connection signal="press" from="Button3" to="Lights" method="_on_receive_id_signal"]
