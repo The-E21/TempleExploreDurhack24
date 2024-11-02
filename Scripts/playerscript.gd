@@ -21,6 +21,9 @@ var jumpTimer : float
 @export var jumpBufferTime : float
 var jumpBufferTimer : float = -1
 
+#animation
+@onready var animations = $AnimatedSprite2D
+
 #Collect Keys
 var inventory = []
 
@@ -40,6 +43,7 @@ func _physics_process(delta):
 	leftRightAimVelocity = leftRightInput * speed
 	velocity += Vector2((leftRightAimVelocity - velocity.x) * accelerationMultiplier * delta, 0)
 	move_and_slide()
+	updateAnimation()
 
 func manageJump(delta):
 	if(jumpBufferTimer != -1):
@@ -92,7 +96,28 @@ func manageJump(delta):
 			if(jumpBufferTimer != -1):
 				jumpPhase = 1
 				jumpTimer = 0
+func updateAnimation():
+	var dir
+	var direction
+	dir = Input.get_axis("ui_left", "ui_right")
+	direction = 'still'
+	if dir == 0 :
+		animations.play('still')
 	
+	else:
+		direction  = 'still'
+		if dir < 0: 
+			direction = ''
+			animations.flip_h = true
+			animations.play('run')
+		elif dir > 0:
+			direction = ''
+			animations.flip_h = false
+			animations.play('run')
+		elif velocity.y > 0: 
+			direction = 'Up' 
+			animations.play('runUp')
+		
 
 
 func _on_key_pick_key(id):
