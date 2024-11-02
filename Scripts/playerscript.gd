@@ -21,6 +21,9 @@ var jumpTimer : float
 @export var jumpBufferTime : float
 var jumpBufferTimer : float = -1
 
+#Collect Keys
+var inventory = []
+
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jumpDown = true
@@ -90,3 +93,7 @@ func manageJump(delta):
 				jumpPhase = 1
 				jumpTimer = 0
 	
+
+
+func _on_key_pick_key(id):
+	inventory.append(id)
