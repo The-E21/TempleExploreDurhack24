@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk25akystoh0b"]
+
+[ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://icon.svg" id="1_mnuiv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pcj6"]
+size = Vector2(1091, 77)
+
+[node name="TempleScene" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(572.5, 602)
+shape = SubResource("RectangleShape2D_5pcj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(-3.49999, 2.49999)
+scale = Vector2(8.39063, 0.539062)
+texture = ExtResource("1_mnuiv")
