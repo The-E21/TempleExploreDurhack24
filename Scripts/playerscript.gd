@@ -19,7 +19,7 @@ var jumpPhase : int
 var jumpTimer : float
 @export var coyoteTime : float
 @export var jumpBufferTime : float
-var jumpBufferTimer : float
+var jumpBufferTimer : float = -1
 
 func _input(event):
 	if event.is_action_pressed("jump"):
