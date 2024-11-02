@@ -237,15 +237,20 @@ offset_bottom = 500.0
 text = "Hello little man"
 horizontal_alignment = 1
 
-[node name="Pressure Plate" parent="." instance=ExtResource("5_etyvh")]
-position = Vector2(588, 458)
+[node name="Crate" type="RigidBody2D" parent="." groups=["Crates"]]
+position = Vector2(34, -9)
+metadata/_edit_group_ = true
 
-[node name="Button" parent="." instance=ExtResource("6_7qkl5")]
-position = Vector2(405, 508)
+[node name="ColorRect" type="ColorRect" parent="Crate"]
+offset_left = 371.0
+offset_top = 492.0
+offset_right = 383.0
+offset_bottom = 505.0
+color = Color(0.882031, 0.532787, 0.942861, 1)
 
-[node name="Crate" parent="." instance=ExtResource("7_830v7")]
-position = Vector2(450, 514)
-collision_mask = 7
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate"]
+position = Vector2(377, 498.5)
+shape = SubResource("RectangleShape2D_xcicu")
 
 [connection signal="pick_key" from="Key" to="Player" method="_on_key_pick_key"]
 [connection signal="press" from="Pressure Plate" to="Player" method="_on_pressure_plate_press"]
