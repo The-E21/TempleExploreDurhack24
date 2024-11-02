@@ -18,10 +18,13 @@ var jumpPhase : int
 @export var apexTime : float
 var jumpTimer : float
 @export var coyoteTime : float
+@export var jumpBufferTime : float
+var jumpBufferTimer : float
 
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jumpDown = true
+		jumpBufferTimer = 0
 	elif event.is_action_released("jump"):
 		jumpDown = false
 
@@ -36,12 +39,17 @@ func _physics_process(delta):
 	move_and_slide()
 
 func manageJump(delta):
+	if(jumpBufferTimer != -1):
+		jumpBufferTimer += delta
+	if(jumpBufferTimer >= jumpBufferTime):
+		jumpBufferTimer = -1
+	
 	match jumpPhase:
 		0:
 			if(not is_on_floor()):
 				jumpPhase = 4
 				jumpTimer = 0
-			if(jumpDown):
+			if(jumpBufferTimer != -1):
 				jumpPhase = 1
 				jumpTimer = 0
 		1:
@@ -62,6 +70,8 @@ func manageJump(delta):
 			jumpTimer += delta
 			if jumpTimer >= apexTime:
 				jumpPhase = 3
+			if not jumpDown:
+				jumpPhase = 3
 		3:
 			velocity += Vector2.DOWN * gravity * delta
 			jumpTimer += delta
@@ -76,7 +86,7 @@ func manageJump(delta):
 			velocity += Vector2.DOWN * gravity * delta
 			if(is_on_floor()):
 				jumpPhase = 0
-			if(jumpDown):
+			if(jumpBufferTimer != -1):
 				jumpPhase = 1
 				jumpTimer = 0
 	

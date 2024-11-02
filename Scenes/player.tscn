@@ -18,6 +18,7 @@ jumpCut = 0.2
 jumpTime = 0.4
 apexTime = 0.5
 coyoteTime = 0.2
+jumpBufferTime = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2eu8h")
