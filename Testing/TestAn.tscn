@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_dwvlq"]
 [ext_resource type="Texture2D" uid="uid://cjubs0d2im85g" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Assets.png" id="3_prws0"]
 [ext_resource type="PackedScene" uid="uid://cefj51svkauch" path="res://Scenes/key.tscn" id="4_on2d0"]
-[ext_resource type="PackedScene" uid="uid://binkfy803f4do" path="res://Scenes/text_popup.tscn" id="5_mhnnn"]
+[ext_resource type="PackedScene" path="res://Scenes/text_popup.tscn" id="5_mhnnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pcj6"]
 size = Vector2(12, 12)
