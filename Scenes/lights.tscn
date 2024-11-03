@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://lnhghc06khuw"]
+
+[ext_resource type="Script" path="res://Scripts/lights.gd" id="1_7cu80"]
+[ext_resource type="Texture2D" uid="uid://ce6p088dcw22t" path="res://Assets/Temple Platformer Tileset [16x16][FREE] - RottingPixels/temple-tileset.png" id="1_47ryp"]
+[ext_resource type="AudioStream" uid="uid://vbgb44plm0ox" path="res://Audio/8_Buffs_Heals_SFX/02_Heal_02.wav" id="3_haw5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lko34"]
+atlas = ExtResource("1_47ryp")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oina2"]
+atlas = ExtResource("1_47ryp")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkrgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lko34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oina2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lights" type="Node2D"]
+script = ExtResource("1_7cu80")
+lightNum = 4
+
+[node name="Light0" type="AnimatedSprite2D" parent="."]
+position = Vector2(-45, 0)
+sprite_frames = SubResource("SpriteFrames_wkrgd")
+
+[node name="Light1" type="AnimatedSprite2D" parent="."]
+position = Vector2(-15, 0)
+sprite_frames = SubResource("SpriteFrames_wkrgd")
+
+[node name="Light2" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 0)
+sprite_frames = SubResource("SpriteFrames_wkrgd")
+
+[node name="Light3" type="AnimatedSprite2D" parent="."]
+position = Vector2(45, 0)
+sprite_frames = SubResource("SpriteFrames_wkrgd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_haw5b")

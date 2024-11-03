@@ -26,7 +26,8 @@ var jumpTimer : float
 var jumpBufferTimer : float = -1
 
 #animation
-@onready var animations = $AnimatedSprite2Dplay
+@onready var animations = $AnimatedSprite2D
+@export var flipOffset : float
 
 #Collect Keys
 var inventory = []
@@ -54,7 +55,7 @@ func push_crate(delta):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collision_crate = collision.get_collider()
-		if collision_crate.is_in_group("Crates") and abs(collision_crate.get_linear_velocity().x) < MAX_VELOCITY: collision_crate.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+		if collision_crate.is_in_group("crates") and abs(collision_crate.get_linear_velocity().x) < MAX_VELOCITY: collision_crate.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 
 func manageJump(delta):
 	if(jumpBufferTimer != -1):
@@ -70,6 +71,7 @@ func manageJump(delta):
 			if(jumpBufferTimer != -1):
 				jumpPhase = 1
 				jumpTimer = 0
+				$JumpSound.play()
 		1:
 			var jumpSeed = jumpHight * apexPercentile / jumpTime
 			velocity = Vector2(velocity.x, -jumpSeed)
@@ -107,6 +109,8 @@ func manageJump(delta):
 			if(jumpBufferTimer != -1):
 				jumpPhase = 1
 				jumpTimer = 0
+				$JumpSound.play()
+				
 func updateAnimation():
 	var dir
 	var direction
@@ -114,18 +118,29 @@ func updateAnimation():
 	direction = 'still'
 	if dir == 0 :
 		animations.play('still')
-	elif dir < 0: 
-	 
-		direction = ''
-		animations.flip_h = true
-		animations.play('run')
-	elif dir > 0:
-		direction = ''
-		animations.flip_h = false
-		animations.play('run')
-	elif velocity.y > 0: 
-		direction = 'Up' 
-		animations.play('runUp')
+		if($Footsteps.playing):
+			$Footsteps.playing = false
+	
+	else:
+		direction  = 'still'
+		if dir < 0: 
+			direction = ''
+			animations.flip_h = true
+			animations.offset = Vector2(flipOffset, 0)
+			animations.play('run')
+			if(not $Footsteps.playing):
+				$Footsteps.playing = true
+		elif dir > 0:
+			direction = ''
+			animations.flip_h = false
+			animations.offset = Vector2.ZERO
+			animations.play('run')
+			if(not $Footsteps.playing):
+				$Footsteps.playing = true
+				
+		elif velocity.y > 0: 
+			direction = 'Up' 
+			animations.play('runUp')
 		
 
 
@@ -136,6 +151,7 @@ func onopenDoor(id):
 	
 	print('Opened Door'+str(id))
 
+#The following 4 functions are for testing only
 func _on_pressure_plate_press(id):
 	print("Activated pressure plate " + str(id))
 
@@ -144,3 +160,6 @@ func _on_pressure_plate_unpress(id):
 
 func _on_button_press(id):
 	print("Pressed button " + str(id))
+
+func _on_lights_solved(id):
+	print("Solved lights puzzle with id " + str(id))
