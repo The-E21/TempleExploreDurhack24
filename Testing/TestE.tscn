@@ -181,7 +181,7 @@ texture = ExtResource("3_ps7bx")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_p1ixa")
 
-[node name="TempleScene" type="Node2D"]
+[node name="TempleScene3" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -211,7 +211,7 @@ metadata/_edit_group_ = true
 [node name="Player" parent="." instance=ExtResource("2_836wr")]
 position = Vector2(367, 466)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 offset = Vector2(0, -60)
 zoom = Vector2(6, 6)
 position_smoothing_enabled = true

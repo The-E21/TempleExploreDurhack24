@@ -238,8 +238,7 @@ text = "Hello little man"
 horizontal_alignment = 1
 
 [node name="Crate" type="RigidBody2D" parent="." groups=["Crates"]]
-position = Vector2(-58, 8)
-collision_layer = 0
+position = Vector2(39, 3)
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Crate"]
@@ -255,6 +254,6 @@ shape = SubResource("RectangleShape2D_5pcj6")
 
 [node name="Door" parent="." instance=ExtResource("5_kcc14")]
 position = Vector2(663, 709)
+script = null
 
-[connection signal="send_inv" from="Player" to="Door" method="_on_player_send_inv"]
 [connection signal="pick_key" from="Key" to="Player" method="_on_key_pick_key"]

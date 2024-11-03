@@ -181,7 +181,7 @@ texture = ExtResource("3_prws0")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_p1ixa")
 
-[node name="TempleScene" type="Node2D"]
+[node name="TempleScene2" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

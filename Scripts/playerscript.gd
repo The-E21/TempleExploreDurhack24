@@ -26,11 +26,11 @@ var jumpTimer : float
 var jumpBufferTimer : float = -1
 
 #animation
-@onready var animations = $AnimatedSprite2D
+@onready var animations = $AnimatedSprite2Dplay
 
 #Collect Keys
 var inventory = []
-
+signal send_inv
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jumpDown = true
@@ -114,26 +114,27 @@ func updateAnimation():
 	direction = 'still'
 	if dir == 0 :
 		animations.play('still')
-	
-	else:
-		direction  = 'still'
-		if dir < 0: 
-			direction = ''
-			animations.flip_h = true
-			animations.play('run')
-		elif dir > 0:
-			direction = ''
-			animations.flip_h = false
-			animations.play('run')
-		elif velocity.y > 0: 
-			direction = 'Up' 
-			animations.play('runUp')
+	elif dir < 0: 
+	 
+		direction = ''
+		animations.flip_h = true
+		animations.play('run')
+	elif dir > 0:
+		direction = ''
+		animations.flip_h = false
+		animations.play('run')
+	elif velocity.y > 0: 
+		direction = 'Up' 
+		animations.play('runUp')
 		
 
 
 func _on_key_pick_key(id):
 	inventory.append(id)
-
+	send_inv.emit(inventory)
+func onopenDoor(id):
+	
+	print('Opened Door'+str(id))
 
 func _on_pressure_plate_press(id):
 	print("Activated pressure plate " + str(id))
