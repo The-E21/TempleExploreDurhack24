@@ -54,7 +54,7 @@ func push_crate(delta):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collision_crate = collision.get_collider()
-		if collision_crate.is_in_group("Crates") and abs(collision_crate.get_linear_velocity().x) < MAX_VELOCITY: collision_crate.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+		if collision_crate.is_in_group("crates") and abs(collision_crate.get_linear_velocity().x) < MAX_VELOCITY: collision_crate.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 
 func manageJump(delta):
 	if(jumpBufferTimer != -1):
@@ -135,6 +135,7 @@ func _on_key_pick_key(id):
 	inventory.append(id)
 
 
+#The following 4 functions are for testing only
 func _on_pressure_plate_press(id):
 	print("Activated pressure plate " + str(id))
 
@@ -143,3 +144,6 @@ func _on_pressure_plate_unpress(id):
 
 func _on_button_press(id):
 	print("Pressed button " + str(id))
+
+func _on_lights_solved(id):
+	print("Solved lights puzzle with id " + str(id))
