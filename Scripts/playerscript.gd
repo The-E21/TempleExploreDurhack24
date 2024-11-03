@@ -27,6 +27,7 @@ var jumpBufferTimer : float = -1
 
 #animation
 @onready var animations = $AnimatedSprite2D
+@export var flipOffset : float
 
 #Collect Keys
 var inventory = []
@@ -125,12 +126,14 @@ func updateAnimation():
 		if dir < 0: 
 			direction = ''
 			animations.flip_h = true
+			animations.offset = Vector2(flipOffset, 0)
 			animations.play('run')
 			if(not $Footsteps.playing):
 				$Footsteps.playing = true
 		elif dir > 0:
 			direction = ''
 			animations.flip_h = false
+			animations.offset = Vector2.ZERO
 			animations.play('run')
 			if(not $Footsteps.playing):
 				$Footsteps.playing = true

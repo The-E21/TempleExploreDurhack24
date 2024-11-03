@@ -146,19 +146,16 @@ jumpTime = 0.4
 apexTime = 0.5
 coyoteTime = 0.2
 jumpBufferTime = 0.2
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+flipOffset = -24.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ix1y5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 1)
-scale = Vector2(0.424015, 0.610417)
+position = Vector2(7, -1)
+scale = Vector2(0.61, 0.61)
 sprite_frames = SubResource("SpriteFrames_8kmgw")
-animation = &"run"
-frame = 6
-frame_progress = 0.786341
+animation = &"runUp"
 speed_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
