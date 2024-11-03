@@ -185,6 +185,21 @@ sources/0 = SubResource("TileSetAtlasSource_p1ixa")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vampw"]
 size = Vector2(128, 16)
 
+[sub_resource type="Animation" id="Animation_67jma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingPlatform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(892, 443)]
+}
+
 [sub_resource type="Animation" id="Animation_nd4t1"]
 resource_name = "move"
 length = 2.0
@@ -202,21 +217,6 @@ tracks/0/keys = {
 "values": [Vector2(892, 443), Vector2(952, 443)]
 }
 
-[sub_resource type="Animation" id="Animation_67jma"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MovingPlatform:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(892, 443)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gocyc"]
 _data = {
 "RESET": SubResource("Animation_67jma"),
@@ -224,6 +224,7 @@ _data = {
 }
 
 [node name="TempleScene" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_cnk3p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
