@@ -31,7 +31,7 @@ var jumpBufferTimer : float = -1
 
 #Collect Keys
 var inventory = []
-
+signal send_inv
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jumpDown = true
@@ -146,7 +146,10 @@ func updateAnimation():
 
 func _on_key_pick_key(id):
 	inventory.append(id)
-
+	send_inv.emit(inventory)
+func onopenDoor(id):
+	
+	print('Opened Door'+str(id))
 
 #The following 4 functions are for testing only
 func _on_pressure_plate_press(id):

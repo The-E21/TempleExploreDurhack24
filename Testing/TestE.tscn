@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fjiknldj7ami"]
+[gd_scene load_steps=10 format=3 uid="uid://fjiknldj7ami"]
 
 [ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://Assets/icon.svg" id="1_rxn5a"]
 [ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_rxdl1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cm3rax2fiu817" path="res://Scenes/pressure_plate.tscn" id="4_7efh7"]
 [ext_resource type="PackedScene" uid="uid://biybvg1vevoxv" path="res://Scenes/button.tscn" id="4_8bnic"]
 [ext_resource type="PackedScene" uid="uid://cefj51svkauch" path="res://Scenes/key.tscn" id="7_quen1"]
+[ext_resource type="PackedScene" uid="uid://dl03sx5o4wa1b" path="res://Scenes/moving_platform.tscn" id="8_jx5ix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm30x"]
 size = Vector2(1082.34, 69.1071)
@@ -49,12 +50,24 @@ id = 2
 position = Vector2(-92, 161)
 
 [node name="Pressure Plate" parent="." instance=ExtResource("4_7efh7")]
-position = Vector2(-152, 176)
+position = Vector2(230, 176)
+id = 7
 
 [node name="Key" parent="." instance=ExtResource("7_quen1")]
 position = Vector2(151, 107)
+
+[node name="MoveingPlatform" parent="." instance=ExtResource("8_jx5ix")]
+position = Vector2(145, 154)
+activateId = 7
+
+[node name="MovingPlatform" parent="MoveingPlatform" index="0"]
+position = Vector2(0, 0)
 
 [connection signal="solved" from="Lights" to="Player" method="_on_lights_solved"]
 [connection signal="press" from="Button" to="Lights" method="_on_receive_id_signal"]
 [connection signal="press" from="Button2" to="Lights" method="_on_receive_id_signal"]
 [connection signal="press" from="Button3" to="Lights" method="_on_receive_id_signal"]
+[connection signal="press" from="Pressure Plate" to="MoveingPlatform" method="_on_turn_on"]
+[connection signal="unpress" from="Pressure Plate" to="MoveingPlatform" method="_on_turn_off"]
+
+[editable path="MoveingPlatform"]

@@ -6,8 +6,8 @@
 atlas = ExtResource("1_fwhxm")
 region = Rect2(144, 32, 16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7738"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ouagf"]
+radius = 8.0
 
 [node name="Crate" type="RigidBody2D" groups=["crates"]]
 collision_layer = 8
@@ -18,4 +18,4 @@ lock_rotation = true
 texture = SubResource("AtlasTexture_fraj5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_i7738")
+shape = SubResource("CircleShape2D_ouagf")
