@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://biybvg1vevoxv"]
+[gd_scene load_steps=6 format=3 uid="uid://biybvg1vevoxv"]
 
 [ext_resource type="Texture2D" uid="uid://ce6p088dcw22t" path="res://Assets/Temple Platformer Tileset [16x16][FREE] - RottingPixels/temple-tileset.png" id="1_gg5h4"]
 [ext_resource type="Script" path="res://Scripts/button.gd" id="1_w1q3a"]
+[ext_resource type="AudioStream" uid="uid://cljrxoipdqjet" path="res://Audio/10_UI_Menu_SFX/092_Pause_04.wav" id="3_7t2p6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frs0i"]
 atlas = ExtResource("1_gg5h4")
@@ -20,6 +21,9 @@ texture = SubResource("AtlasTexture_frs0i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2csxu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7t2p6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

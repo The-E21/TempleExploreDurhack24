@@ -12,7 +12,7 @@ size = Vector2(14, 17)
 
 [node name="Pressure Plate" type="Area2D"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_jfwbu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
