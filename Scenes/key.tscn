@@ -12,7 +12,7 @@ region = Rect2(112, 64, 16, 16)
 radius = 6.71863
 
 [node name="Key" type="Area2D"]
-scale = Vector2(10, 10)
+scale = Vector2(0.9, 0.9)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("2_qlf73")
