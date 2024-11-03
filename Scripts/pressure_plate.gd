@@ -9,9 +9,11 @@ var pressCount : int = 0
 func _on_body_entered(body):
 	if(pressCount == 0):
 		press.emit(id)
+		$AudioStreamPlayer.play()
 	pressCount += 1
 
 func _on_body_exited(body):
 	pressCount -= 1
 	if(pressCount == 0):
 		unpress.emit(id)
+		$AudioStreamPlayer.play()

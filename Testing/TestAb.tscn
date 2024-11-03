@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgkyh4ldymd6x"]
+[gd_scene load_steps=13 format=4 uid="uid://cgturpyg0gxep"]
 
+[ext_resource type="Script" path="res://Testing/test_ab.gd" id="1_cnk3p"]
 [ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://Assets/icon.svg" id="1_qj1ne"]
 [ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_u5u82"]
 [ext_resource type="Texture2D" uid="uid://cjubs0d2im85g" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Assets.png" id="3_jshar"]
-[ext_resource type="PackedScene" uid="uid://cdg5ibm0welvx" path="res://Scenes/key.tscn" id="4_pj68k"]
+[ext_resource type="PackedScene" uid="uid://cefj51svkauch" path="res://Scenes/key.tscn" id="4_pj68k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pcj6"]
-size = Vector2(1082.34, 69.1071)
+size = Vector2(12, 13)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ixa"]
 texture = ExtResource("3_jshar")
@@ -181,39 +182,80 @@ texture = ExtResource("3_jshar")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_p1ixa")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vampw"]
+size = Vector2(128, 16)
+
+[sub_resource type="Animation" id="Animation_67jma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("MovingPlatform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(892, 443)]
+}
+
+[sub_resource type="Animation" id="Animation_nd4t1"]
+resource_name = "move"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingPlatform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gocyc"]
+_data = {
+"RESET": SubResource("Animation_67jma"),
+"move": SubResource("Animation_nd4t1")
+}
+
 [node name="TempleScene" type="Node2D"]
+script = ExtResource("1_cnk3p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(576, 614)
+scale = Vector2(8.39063, 0.539062)
+texture = ExtResource("1_qj1ne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(572.5, 602)
 shape = SubResource("RectangleShape2D_5pcj6")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
-position = Vector2(-3.49999, 2.49999)
-scale = Vector2(8.39063, 0.539062)
-texture = ExtResource("1_qj1ne")
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(417, -205)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(591, 476)
+scale = Vector2(2.52726, 0.666933)
+texture = ExtResource("1_qj1ne")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(596, 600.25)
 scale = Vector2(0.3012, 1.23721)
 shape = SubResource("RectangleShape2D_5pcj6")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D"]
-position = Vector2(-3.49999, 2.49999)
-scale = Vector2(8.39063, 0.539062)
-texture = ExtResource("1_qj1ne")
-metadata/_edit_group_ = true
-
 [node name="Player" parent="." instance=ExtResource("2_u5u82")]
 position = Vector2(367, 466)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 offset = Vector2(0, -60)
-zoom = Vector2(6, 6)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
@@ -225,7 +267,7 @@ tile_map_data = PackedByteArray("AAASACIAAAAEAAYAAAATACIAAAAFAAcAAAAUACIAAAAFAAc
 tile_set = SubResource("TileSet_qpynn")
 
 [node name="Key" parent="." instance=ExtResource("4_pj68k")]
-position = Vector2(684, 450)
+position = Vector2(996, 394)
 collision_layer = 2
 
 [node name="Label" type="Label" parent="."]
@@ -237,7 +279,7 @@ text = "Hello little man"
 horizontal_alignment = 1
 
 [node name="Crate" type="RigidBody2D" parent="." groups=["Crates"]]
-position = Vector2(34, -9)
+position = Vector2(-32, 10)
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Crate"]
@@ -250,5 +292,23 @@ color = Color(0.882031, 0.532787, 0.942861, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate"]
 position = Vector2(377, 498.5)
 shape = SubResource("RectangleShape2D_5pcj6")
+
+[node name="MovingPlatform" type="AnimatableBody2D" parent="."]
+position = Vector2(892, 443)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform"]
+position = Vector2(0, 56)
+scale = Vector2(1, 0.125)
+texture = ExtResource("1_qj1ne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform"]
+position = Vector2(0, 56)
+shape = SubResource("RectangleShape2D_vampw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gocyc")
+}
 
 [connection signal="pick_key" from="Key" to="Player" method="_on_key_pick_key"]
