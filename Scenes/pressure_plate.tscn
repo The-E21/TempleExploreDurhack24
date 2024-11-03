@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm3rax2fiu817"]
+[gd_scene load_steps=6 format=3 uid="uid://cm3rax2fiu817"]
 
 [ext_resource type="Script" path="res://Scripts/pressure_plate.gd" id="1_jfwbu"]
 [ext_resource type="Texture2D" uid="uid://cjubs0d2im85g" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Assets.png" id="1_vlccl"]
+[ext_resource type="AudioStream" uid="uid://b47rvjx4rivaf" path="res://Audio/10_Battle_SFX/35_Miss_Evade_02.wav" id="3_ush0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qs7rf"]
 atlas = ExtResource("1_vlccl")
@@ -21,6 +22,9 @@ texture = SubResource("AtlasTexture_qs7rf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_5xnyo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ush0a")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
