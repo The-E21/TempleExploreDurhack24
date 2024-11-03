@@ -786,6 +786,8 @@ sources/2 = SubResource("TileSetAtlasSource_slrri")
 
 [node name="Player" parent="." instance=ExtResource("2_ld67o")]
 position = Vector2(127, 316)
+gravity = 400.0
+jumpHight = 64.0
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 offset = Vector2(0, -60)
