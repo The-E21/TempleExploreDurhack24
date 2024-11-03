@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://ecgfkxgkb64r" path="res://Audio/12_Player_Movement_SFX/30_Jump_03.wav" id="4_444un"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ix1y5"]
-radius = 12.0
-height = 24.0
+radius = 2.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wlirr"]
 atlas = ExtResource("2_am2xj")
@@ -149,6 +149,9 @@ jumpBufferTime = 0.2
 flipOffset = -24.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(-0.5, 1.5)
+scale = Vector2(1.3887, 1.55637)
 shape = SubResource("CapsuleShape2D_ix1y5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
