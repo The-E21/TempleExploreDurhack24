@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmvm3tmon2yir"]
+[gd_scene load_steps=22 format=3 uid="uid://cmvm3tmon2yir"]
 
 [ext_resource type="Script" path="res://Scripts/playerscript.gd" id="1_dv0df"]
 [ext_resource type="Texture2D" uid="uid://c55m5me61g5hd" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Character/Character_Sprite_Sheet.png" id="2_am2xj"]
+[ext_resource type="AudioStream" uid="uid://bwx6qrjbjxqse" path="res://Audio/12_Player_Movement_SFX/12_Step_wood_03.wav" id="3_vyotk"]
+[ext_resource type="AudioStream" uid="uid://ecgfkxgkb64r" path="res://Audio/12_Player_Movement_SFX/30_Jump_03.wav" id="4_444un"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ix1y5"]
 radius = 12.0
@@ -166,3 +168,9 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 1.0
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vyotk")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_444un")
