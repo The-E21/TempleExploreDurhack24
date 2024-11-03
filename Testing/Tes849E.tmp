@@ -1,16 +1,16 @@
-[gd_scene load_steps=13 format=4 uid="uid://cgturpyg0gxep"]
+[gd_scene load_steps=9 format=4 uid="uid://ds4tgvvbpjqu8"]
 
-[ext_resource type="Script" path="res://Testing/test_ab.gd" id="1_cnk3p"]
-[ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://Assets/icon.svg" id="1_qj1ne"]
-[ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_u5u82"]
-[ext_resource type="Texture2D" uid="uid://cjubs0d2im85g" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Assets.png" id="3_jshar"]
-[ext_resource type="PackedScene" uid="uid://cefj51svkauch" path="res://Scenes/key.tscn" id="4_pj68k"]
+[ext_resource type="Texture2D" uid="uid://cmjfqsloifams" path="res://Assets/icon.svg" id="1_lf4wa"]
+[ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_sjwlo"]
+[ext_resource type="Texture2D" uid="uid://cjubs0d2im85g" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Assets.png" id="3_yf8cb"]
+[ext_resource type="PackedScene" uid="uid://cdg5ibm0welvx" path="res://Scenes/key.tscn" id="4_d0880"]
+[ext_resource type="PackedScene" uid="uid://bmyl6814nddb6" path="res://Scenes/door1.tscn" id="5_kcc14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pcj6"]
-size = Vector2(12, 13)
+size = Vector2(20, 23)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ixa"]
-texture = ExtResource("3_jshar")
+texture = ExtResource("3_yf8cb")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
@@ -182,81 +182,39 @@ texture = ExtResource("3_jshar")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_p1ixa")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vampw"]
-size = Vector2(128, 16)
-
-[sub_resource type="Animation" id="Animation_67jma"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MovingPlatform:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(892, 443)]
-}
-
-[sub_resource type="Animation" id="Animation_nd4t1"]
-resource_name = "move"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MovingPlatform:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(892, 443), Vector2(952, 443)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gocyc"]
-_data = {
-"RESET": SubResource("Animation_67jma"),
-"move": SubResource("Animation_nd4t1")
-}
-
-[node name="TempleScene" type="Node2D"]
-position = Vector2(1, 0)
-script = ExtResource("1_cnk3p")
+[node name="TempleSceneO" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(576, 614)
-scale = Vector2(8.39063, 0.539062)
-texture = ExtResource("1_qj1ne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(572.5, 602)
 shape = SubResource("RectangleShape2D_5pcj6")
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(-11.5, 6.99999)
+scale = Vector2(8.39063, 0.539062)
+texture = ExtResource("1_lf4wa")
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(417, -205)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(591, 476)
-scale = Vector2(2.52726, 0.666933)
-texture = ExtResource("1_qj1ne")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(596, 600.25)
 scale = Vector2(0.3012, 1.23721)
 shape = SubResource("RectangleShape2D_5pcj6")
 
-[node name="Player" parent="." instance=ExtResource("2_u5u82")]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2/CollisionShape2D"]
+position = Vector2(-3.49999, 2.49999)
+scale = Vector2(8.39063, 0.539062)
+texture = ExtResource("1_lf4wa")
+metadata/_edit_group_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_sjwlo")]
 position = Vector2(367, 466)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 offset = Vector2(0, -60)
-zoom = Vector2(4, 4)
+zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 rotation_smoothing_enabled = true
@@ -267,8 +225,8 @@ position = Vector2(4, 0)
 tile_map_data = PackedByteArray("AAASACIAAAAEAAYAAAATACIAAAAFAAcAAAAUACIAAAAFAAcAAAAVACIAAAAFAAcAAAAWACIAAAAFAAcAAAAXACIAAAAFAAcAAAAYACIAAAAFAAcAAAAZACIAAAAFAAcAAAAaACIAAAAFAAcAAAAbACIAAAAFAAcAAAAbACMAAAAFAAcAAAAcACMAAAAFAAcAAAAdACMAAAAFAAcAAAAeACMAAAAFAAcAAAAeACIAAAAFAAcAAAAfACIAAAAFAAcAAAAdACIAAAAFAAcAAAAcACIAAAAFAAcAAAAfACEAAAAEAAYAAAAeACEAAAAEAAYAAAAdACEAAAAEAAYAAAAcACEAAAAEAAYAAAAbACEAAAAEAAYAAAAaACEAAAAEAAYAAAAZACEAAAAEAAYAAAAYACEAAAAEAAYAAAAXACEAAAAEAAYAAAAWACEAAAAEAAYAAAAVACEAAAAEAAYAAAAUACEAAAAEAAYAAAATACEAAAAEAAYAAAASACEAAAAEAAYAAAAaACMAAAAFAAcAAAAZACMAAAAFAAcAAAAYACMAAAAFAAcAAAAXACMAAAAFAAcAAAAWACMAAAAFAAcAAAAVACMAAAAFAAcAAAAUACMAAAAFAAcAAAATACMAAAAFAAcAAAASACMAAAAEAAYAAAAfACMAAAAFAAcAAAASACAAAAAEAAUAAAATACAAAAAFAAUAAAAWACAAAAAEAAQAAAAYACAAAAAFAAUAAAAZACAAAAAFAAUAAAAXACAAAAAFAAQAAAAaACAAAAAFAAQAAAAUACAAAAAFAAQAAAAbACAAAAAEAAQAAAAcACAAAAAEAAQAAAAeACAAAAAHAAoAAAAdACAAAAAFAAQAAAAVACAAAAAFAAQAAAAfACAAAAAFAAQAAAAgACEAAAAIAAMAAAAhACEAAAAIAAMAAAAiACEAAAAIAAMAAAAjACEAAAAIAAMAAAAkACEAAAAIAAMAAAAlACEAAAAIAAMAAAAmACEAAAAIAAMAAAAnACEAAAAIAAMAAAAoACEAAAAIAAMAAAApACEAAAAIAAMAAAAqACEAAAAIAAMAAAApACIAAAAIAAMAAAAqACIAAAAIAAMAAAAoACIAAAAIAAMAAAAnACIAAAAIAAMAAAAmACIAAAAIAAMAAAAlACIAAAAIAAMAAAAkACIAAAAIAAMAAAAjACIAAAAIAAMAAAAiACIAAAAIAAMAAAAgACIAAAAIAAMAAAAgACMAAAAIAAMAAAAhACMAAAAIAAMAAAAiACMAAAAIAAMAAAAjACMAAAAIAAMAAAAkACMAAAAIAAMAAAAlACMAAAAIAAMAAAAmACMAAAAIAAMAAAAnACMAAAAIAAMAAAAoACMAAAAIAAMAAAApACMAAAAIAAMAAAAqACMAAAAIAAMAAAAhACIAAAAIAAMAAAArACEAAAAIAAMAAAArACIAAAAIAAMAAAArACMAAAAIAAMAAAAgACAAAAACAAAAAAAhAB8AAAACAAAAAAAhACAAAAACAAEAAAAkAB0AAAABAAAAAAAlAB0AAAABAAAAAAAmAB0AAAABAAAAAAAnAB0AAAABAAAAAAArACAAAAACAAAAAAAqAB8AAAACAAAAAAAqACAAAAACAAEAAAAmABwAAAAHAAgAAAAsACEAAAAFAAcAAAAtACEAAAAFAAcAAAAsACIAAAAFAAcAAAAuACIAAAAFAAcAAAAvACIAAAAFAAcAAAAwACIAAAAFAAcAAAAxACIAAAAFAAcAAAAyACIAAAAFAAcAAAAzACIAAAAFAAcAAAA0ACIAAAAFAAcAAAA1ACIAAAAFAAcAAAA1ACMAAAAFAAcAAAA0ACMAAAAFAAcAAAAzACMAAAAFAAcAAAAyACMAAAAFAAcAAAAxACMAAAAFAAcAAAAwACMAAAAFAAcAAAAvACMAAAAFAAcAAAAuACMAAAAFAAcAAAAtACMAAAAFAAcAAAAsACMAAAAFAAcAAAAtACIAAAAFAAcAAAAuACEAAAAFAAcAAAAvACEAAAAFAAcAAAAwACEAAAAFAAcAAAAxACEAAAAFAAcAAAAyACEAAAAFAAcAAAAzACEAAAAFAAcAAAA0ACEAAAAFAAcAAAA1ACEAAAAFAAcAAAA2ACIAAAAFAAcAAAA2ACMAAAAFAAcAAAA2ACEAAAAFAAcAAAA3ACEAAAAFAAcAAAA3ACIAAAAFAAcAAAA3ACMAAAAFAAcAAAAtACAAAAAEAAUAAAAuACAAAAAFAAUAAAAvACAAAAAFAAUAAAAwACAAAAAGAAUAAAAtAB4AAAAHAAUAAAAwAB4AAAAJAAUAAAAuAB4AAAAIAAUAAAAvAB4AAAAIAAUAAAAtAB0AAAAEAAUAAAAwAB0AAAAGAAUAAAAuAB0AAAAFAAUAAAAvAB0AAAAFAAUAAAAxABoAAAAHAAYAAAAVAB0AAAADAAUAAAAVAB4AAAADAAcAAAAWAB0AAAADAAcAAAAbABsAAAADAAUAAAAbABwAAAADAAUAAAAbAB0AAAADAAUAAAAbAB4AAAADAAcAAAAVABwAAAADAAUAAAAWABwAAAADAAYAAAAVABsAAAADAAUAAAAWABsAAAADAAUAAAAaABwAAAADAAUAAAAaABsAAAADAAUAAAAaAB0AAAADAAcAAAAcABsAAAADAAUAAAAcABwAAAADAAcAAAAYAB4AAAADAAcAAAAYAB0AAAADAAYAAAAYABwAAAADAAYAAAAYABsAAAADAAUAAAA=")
 tile_set = SubResource("TileSet_qpynn")
 
-[node name="Key" parent="." instance=ExtResource("4_pj68k")]
-position = Vector2(996, 394)
+[node name="Key" parent="." instance=ExtResource("4_d0880")]
+position = Vector2(684, 450)
 collision_layer = 2
 
 [node name="Label" type="Label" parent="."]
@@ -280,36 +238,22 @@ text = "Hello little man"
 horizontal_alignment = 1
 
 [node name="Crate" type="RigidBody2D" parent="." groups=["Crates"]]
-position = Vector2(-32, 10)
+position = Vector2(39, 3)
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Crate"]
 offset_left = 371.0
 offset_top = 492.0
-offset_right = 383.0
-offset_bottom = 505.0
+offset_right = 389.0
+offset_bottom = 510.0
 color = Color(0.882031, 0.532787, 0.942861, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate"]
-position = Vector2(377, 498.5)
+position = Vector2(380, 501.5)
 shape = SubResource("RectangleShape2D_5pcj6")
 
-[node name="MovingPlatform" type="AnimatableBody2D" parent="."]
-position = Vector2(892, 443)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform"]
-position = Vector2(0, 56)
-scale = Vector2(1, 0.125)
-texture = ExtResource("1_qj1ne")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform"]
-position = Vector2(0, 56)
-shape = SubResource("RectangleShape2D_vampw")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_gocyc")
-}
+[node name="Door" parent="." instance=ExtResource("5_kcc14")]
+position = Vector2(663, 709)
+script = null
 
 [connection signal="pick_key" from="Key" to="Player" method="_on_key_pick_key"]
