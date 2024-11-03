@@ -52,7 +52,6 @@ func _on_near_door_body_exited(body) :
 	print('Exited Door')
 
 func _input(event) :
-	print(isOverDoor)
 	if isOverDoor and hasKey:
 		
 		$CollisionShape2D.disabled = true

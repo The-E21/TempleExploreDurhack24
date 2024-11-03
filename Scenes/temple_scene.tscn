@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://dk25akystoh0b"]
+[gd_scene load_steps=10 format=4 uid="uid://dk25akystoh0b"]
 
 [ext_resource type="PackedScene" uid="uid://cmvm3tmon2yir" path="res://Scenes/player.tscn" id="2_ld67o"]
 [ext_resource type="Texture2D" uid="uid://cjubs0d2im85g" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Assets.png" id="3_2go6b"]
 [ext_resource type="Texture2D" uid="uid://c5ynieipynsvm" path="res://Assets/Legacy_Adventure_Pack_TEMPLE/Final/Assets/Background_1.png" id="3_v86j1"]
 [ext_resource type="PackedScene" uid="uid://binkfy803f4do" path="res://Scenes/text_popup.tscn" id="5_klmcc"]
 [ext_resource type="PackedScene" uid="uid://cefj51svkauch" path="res://Scenes/key.tscn" id="6_cja01"]
+[ext_resource type="PackedScene" path="res://Scenes/door1.tscn" id="6_d6f48"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ixa"]
 texture = ExtResource("3_2go6b")
@@ -687,14 +688,6 @@ tile_map_data = PackedByteArray("AAAWABwAAQALAA4AAAASAB4AAQAHABAAAAATAB4AAQAIABA
 tile_set = SubResource("TileSet_g3bin")
 collision_enabled = false
 
-[node name="Label" type="Label" parent="."]
-offset_left = 425.0
-offset_top = 477.0
-offset_right = 544.0
-offset_bottom = 500.0
-text = "Hello little man"
-horizontal_alignment = 1
-
 [node name="AnimateText4" parent="." instance=ExtResource("5_klmcc")]
 position = Vector2(1098, 424)
 text = "Go through each door to complete puzzles and go to the next step."
@@ -703,4 +696,8 @@ text = "Go through each door to complete puzzles and go to the next step."
 position = Vector2(556, 472)
 scale = Vector2(0.900384, 0.900384)
 
+[node name="Door" parent="." instance=ExtResource("6_d6f48")]
+position = Vector2(831, 660)
+
+[connection signal="send_inv" from="Player" to="Door" method="_on_player_send_inv"]
 [connection signal="pick_key" from="Key" to="Player" method="_on_key_pick_key"]
